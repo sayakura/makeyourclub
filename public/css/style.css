@@ -77,7 +77,7 @@ input, textarea{
   background-color: #424242;
   opacity: 0.8;
 }
-i.material-icons{
+right hide-on-med-and-down>li>a>i.material-icons{
   color:white;
 }
 #nav-mobile>li>a:active{
@@ -97,4 +97,8 @@ i.material-icons{
 }
 #dropdown2>li>a{
   color:black;
+}
+.parallax-container{
+  padding-top:60px;
+  height:400px;
 }
