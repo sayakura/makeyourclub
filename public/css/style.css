@@ -72,3 +72,29 @@ input, textarea{
 .input-field > input{
   margin-top:5px;
 }
+
+#nav-mobile.side-nav{
+  background-color: #424242;
+  opacity: 0.8;
+}
+i.material-icons{
+  color:white;
+}
+#nav-mobile>li>a:active{
+  background-color: black;
+}
+#nav-mobile>li>a:hover{
+  background-color: #212121 ;
+}#nav-mobile>li>a{
+  color:white;
+}
+#nav-mobile>li{
+  padding: 0px;
+}
+
+#dropdown1>li>a{
+  color:#03a9f4;
+}
+#dropdown2>li>a{
+  color:black;
+}

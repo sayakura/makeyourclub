@@ -8,7 +8,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',function(req, res){
   res.sendFile(__dirname+"/tempalates/index.html");
 });
-
+app.get('/dashBoard',function(req, res){
+  res.sendFile(__dirname+"/public/dashBoard.html");
+});
 
 app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening at...");
