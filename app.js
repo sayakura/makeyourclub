@@ -1,6 +1,37 @@
 var express = require("express");
 var app = express();
-var http = require("http").Server(app);
+var path = require("path");
+var server = require("http").createServer(app);
+
+
+app.use(express.static(path.join(__dirname, 'public')));
+app.get('/',function(req, res){
+  res.sendFile(__dirname+"/tempalates/index.html");
+});
+
+
+app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+  console.log("Server listening at...");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
