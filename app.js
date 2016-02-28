@@ -9,7 +9,7 @@ app.get('/',function(req, res){
   res.sendFile(__dirname+"/tempalates/index.html");
 });
 app.get('/dashboard',function(req, res){
-  res.sendFile(__dirname+"/public/dashBoard.html");
+  res.sendFile(__dirname+"/public/dashboard.html");
 });
 app.get('/club_page',function(req, res){
   res.sendFile(__dirname+"/public/club_page.html");
