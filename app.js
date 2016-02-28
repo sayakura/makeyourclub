@@ -8,16 +8,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/',function(req, res){
   res.sendFile(__dirname+"/tempalates/index.html");
 });
-app.get('/dashBoard',function(req, res){
+app.get('/dashboard',function(req, res){
   res.sendFile(__dirname+"/public/dashBoard.html");
 });
 app.get('/club_page',function(req, res){
   res.sendFile(__dirname+"/public/club_page.html");
 });
 
-app.get('/club_page:token',function(req, res){
-  var token = req.params.token;
-  
+app.get('/manage_page',function(req, res){
+  res.sendFile(__dirname+"/public/manage_page.html");
+
 });
 
 app.listen(process.env.PORT || 80, process.env.IP || "0.0.0.0", function(){
