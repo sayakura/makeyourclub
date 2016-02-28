@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="launchApp">
 <head>
 <script src="https://code.jquery.com/jquery.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-<link href="main.css" type="text/css" rel="stylesheet"/>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>{{club.name}}</title>
+  <title>{{lastestclub.name}} Club</title>
+
 </head>
-<body>
+<body ng-controller='formCtrl'>
 	<nav class="navbar navbar-default navbar-static-top" role="navigation">
 	    <div class="container">
 	        <div class="navbar-header">
@@ -20,7 +20,7 @@
 	                <span class="icon-bar"></span>
 	            </button>
 	            <a href="#" class="navbar-brand" style="font-size:30px">
-	            	{{club.name}}
+	            	{{lastestclub.name}} Club
 	            </a>
 	        </div>
 
@@ -38,7 +38,7 @@
 
 	<section class="jumbotron">
 		<div class="container">
-			<h1 style="text-align:center">{{club.name}}</h1>
+			<h1 style="text-align:center">{{lastestclub.name}} Club</h1>
 		</div>
 	</section>
 <!--<span class="label label-primary">New <span class="badge">99+</span></span>-->
@@ -48,21 +48,21 @@
 	  	<div class="col-xs-12 col-md-6 col-sm-12 col-xm-12">
 			 <div class="page-header">
 				<h2>Desciption</h2>
-				<p>{{club.description}}
+				    <p>{{lastestclub.description}}
 				</p>
 			</div>
 		</div>
 		<div class="col-xs-12 col-md-6 col-sm-12  carousel slide" data-ride="carousel" id="featured">
 				<div class="carousel-inner">
 					<div class="item active">
-						<a href="#" class="thumbnail">
-					   		 <img src="https://i.ytimg.	com/vi/d88BXilbOxg/maxresdefault.jpg" />
+						<a href="#" >
+              	 <img src="/images/img2.png"/>
 				   		</a>
 
 					</div>
 					<div class="item">
-						<a href="#" class="thumbnail">
-					   		 <img src="https://i.ytimg.	com/vi/d88BXilbOxg/maxresdefault.jpg" />
+						<a href="#" >
+					   		 <img src="/images/img2.png" />
 				   		</a>
 					</div>
 			   </div>
@@ -81,10 +81,21 @@
 
 	<hr>
 	 <footer class="footer" style="color:gray;text-align:center">
-        <p>&copy;{{club.name}}</p>
+        <p>&copy;{{lastestclub.name}} Club</p>
+        <a href="/">Power by Makeyour.club</a>
    </footer>
 
   </div>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="/js/materialize.js"></script>
+  <script src="/js/init.js"></script>
+  <script src="/js/jq.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+
+  <script src="/js/main.js"></script>
 
 </body>
 </html>

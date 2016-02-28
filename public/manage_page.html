@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="launchApp">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -10,7 +10,7 @@
   <link href="/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
-<body>
+<body ng-controller="formCtrl">
   <nav class="grey darken-4" role="navigation">
     <div class="nav-wrapper container">
       <a id="logo-container" href="/" class="brand-logo">DashBoard</a>
@@ -24,7 +24,7 @@
       </ul>
 
       <ul id="dropdown2" class="dropdown-content" >
-        <li><a href="/manage_page.html">Manage</a></li>
+        <li><a href="#!">Manage</a></li>
         <li><a href="#!">Statistic</a></li>
         <li><a href="#!">Report</a></li>
         <li><a href="#!">Setting</a></li>
@@ -32,7 +32,7 @@
       </ul>
 
       <ul id="nav-mobile" class="side-nav z-depth-3">
-        <li><a href="/manage_page.html" class="waves-effect waves-teal">Manage</a></li>
+        <li><a href="#" class="waves-effect waves-teal">Manage</a></li>
         <li><a href="#" class="waves-effect waves-teal">Statistic</a></li>
         <li><a href="#" class="waves-effect waves-teal">Report</a></li>
         <li><a href="#" class="waves-effect waves-teal">Setting</a></li>
@@ -43,7 +43,7 @@
   </nav>
     <div class="row">
       <div class="container">
-         <div class="col s12 m4 l3">
+         <div class="col s12 m4 l2">
            <div class="card blue-grey darken-1 z-depth-1">
              <div class="card-content white-text">
                <span class="card-title">Principal</span>
@@ -61,35 +61,36 @@
              </div>
            </div>
          </div>
-         <div class="col s12 m8 l9">
-           <div class="card">
-              <div class="card-image waves-effect waves-block waves-light">
-                <img class="responsive-img " src="/images/activity.jpg">
-              </div>
-              <div class="card-content">
-                <span class="card-title activator grey-text text-darken-4">Overview<i class="material-icons right">more_vert</i></span>
-              </div>
-              <div class="card-reveal">
-                <span class="card-title grey-text text-darken-4">Description<i class="material-icons right">close</i></span>
-                <ul>
-                  <li>Active Students: 90/100<li>
-                  <li>Note:HAHAAH<li>
-                </ul>
-              </div>
-            </div>
+         <div class="col s12 m8 l10">
+           <div class="col s12 m8 l4" ng-repeat="club in clubs">
+             <div class="card small" >
+                 <div class="card-image waves-effect waves-block waves-light">
+                    <img src={{club.photo||"/images/img2.png"}} class="activator responsive-img" style="max-height:200px;width:700px;">
+                 </div>
+                 <div class="card-content">
+                   <span class="card-title activator grey-text text-darken-4">{{club.name}} Club<i class="material-icons right">more_vert</i></span>
+                   <p><a href="#">{{club.email}}</a></p>
+                 </div>
+                 <div class="card-reveal ">
+                   <span class="card-title grey-text text-darken-4">{{club.name}} Club<i class="material-icons right">close</i></span>
+                   <div style="max-width:50px;"><span>{{club.description}}</span></div>
+                   <table>
+                     <tr>
+                      <td><button class="waves-effect waves-light btn-large white black-text">contact</button></td>
+                      <td><button ng-click="delete(club)"class="waves-effect waves-light btn-large white black-text">Manage</button></td>
+                    </tr>
+                     <tr>
+                      <td><button class="waves-effect waves-light btn-large white black-text">Statistic</button></td>
+                      <td><button ng-click="goTo(club)"class="waves-effect waves-light btn-large white black-text">Visit</button></td>
+                    </tr>
+                   </table>
+                 </div>
+               </div>
+           </div>
          </div>
          <div class="row">
 
-       <div class="col s12 m4 ">
-         <div class="card">
-           <div class="card-image">
-             <img src="images/pie_graph.jpg" class="responsive-img">
-           </div>
-           <div class="card-content">
-             <p>Student Demography</p>
-           </div>
-         </div>
-       </div>
+
      </div>
 
 
@@ -110,10 +111,17 @@
 
 
     <!--  Scripts-->
+
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="/js/materialize.js"></script>
     <script src="/js/init.js"></script>
     <script src="/js/jq.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+    <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+
+    <script src="/js/main.js"></script>
+
 </body>
 </html>

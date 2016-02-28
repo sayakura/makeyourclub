@@ -10,6 +10,7 @@ var text = {
   yourdomain : "你的个性域名看起来将会是这样：",
   submakeyourclub : "互通的校园社区， 全新的交流体验",
   create : "创建",
+  photo: "上传图片（可选）",
   easycom : "简单方便的交流和管理",
   weprovide : "我们提供一个让师生与社团更简洁、更有效率的沟通与管理平台。 让学校与社团能够更好地协作，从而增进学校与社团之间的管理与交流。",
   discover : "发现生活，发现兴趣",
@@ -30,20 +31,37 @@ app.controller('formCtrl',["$scope","$firebaseArray",
     $scope.english = true;
 
     var ref = new Firebase("https://torrid-fire-1367.firebaseio.com/club");
-    $scope.clubProfile = $firebaseArray(ref);
-    $scope.club = {};
+     $scope.clubs  = $firebaseArray(ref);
+    $scope.lastestclub = {};
 
+    ref.limitToLast(1).on("child_added",function(data){
+
+      $scope.lastestclub = data.val();
+
+    });
+
+
+
+
+
+    $scope.club = {};
     $scope.registerR = function(){
       Materialize.toast('Successful!!!', 2000,'',function(){
         window.location.href = "/club_page.html";
       });
 
     };
-
+    $scope.delete = function(club){
+      $scope.clubs.splice($scope.clubs.indexOf(club),1);
+      alert("You just deleted this club");
+    }
+    $scope.goTo = function(club){
+      $scope.clubs.$add(club);
+      console.log(  $scope.lastestclub );
+      window.location.href=  "/club_page.html";
+    }
     $scope.submitClub = function(){
-      $scope.clubProfile.$add($scope.club);
-      $scope.club = {};
-      console.log("submited!");
+      $scope.clubs.$add($scope.club);
       $('#modal1').closeModal();
       $scope.registerR();
     }
