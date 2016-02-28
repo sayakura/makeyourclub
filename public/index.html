@@ -17,24 +17,27 @@
       <a id="logo-container" href="#" class="brand-logo" style="padding-top:2px;"><img src="/images/logo.png"></img></a>
       <a  href="#" class="brand-logo" style="margin-left:32px">Make your .club</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="navLink"href="#" ng-click="registerR()">Login</a></li>
-        <li><a class="navLink"href="#">SignUp</a></li>
+        <li><a class="navLink"href="#" ng-click="registerR()">{{cntext.login||"Login"}}</a></li>
+        <li><a class="navLink"href="#">{{cntext.signup||"Sign Up"}}</a></li>
         <li><a href="#"><i class="material-icons dropdown-button " data-activates="dropdown1">view_module</i></a></li>
       </ul>
 
       <ul id="dropdown1" class="dropdown-content" >
-        <li><a href="#!">Community</a></li>
-        <li><a href="#!">Contact Us</a></li>
-        <li><a href="#!">Help</a></li>
-        <li><a href="dashboard.html">dashBoard</a></li>
+        <li><a href="#!">{{cntext.community||"Community"}}</a></li>
+        <li><a href="#!">{{cntext.contact||"Contact Us"}}</a></li>
+        <li><a href="#!">{{cntext.help||"Help"}}</a></li>
+        <li><a href="dashboard.html">{{cntext.dashboard||"DashBoard"}}</a></li>
+        <li class="divider"></li>
+         <li><a ng-click="translate()"><i class="material-icons">translate</i></a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav z-depth-3">
-        <li><a href="#" class="waves-effect waves-teal">Login</a></li>
-        <li><a href="#" class="waves-effect waves-teal">Sign Up</a></li>
-        <li><a href="#" class="waves-effect waves-teal">Community</a></li>
-        <li><a href="#" class="waves-effect waves-teal">Contact Us</a></li>
-        <li><a href="#" class="waves-effect waves-teal">Help</a></li>
+        <li><a href="#" class="waves-effect waves-teal">{{cntext.login||"Login"}}</a></li>
+        <li><a href="#" class="waves-effect waves-teal">{{cntext.signup||"Sign Up"}}</a></li>
+        <li><a href="#" class="waves-effect waves-teal">{{cntext.community||"Community"}}</a></li>
+        <li><a href="#" class="waves-effect waves-teal">{{cntext.contact||"Contact Us"}}</a></li>
+        <li><a href="#" class="waves-effect waves-teal">{{cntext.help||"Help"}}</a></li>
+        <li><a ng-click="translate()"><i class="material-icons">translate</i></a></li>
       </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse white-text"><i class="material-icons ">menu</i></a>
     </div>
@@ -44,12 +47,12 @@
     <div class="section no-pad-bot">
       <div class="container">
         <br><br>
-        <h1 class="header center  blue-text text-lighten-2">-Make Your Club-</h1>
+        <h1 id="makeyourclub"class="header center  white-text text-lighten-2">{{cntext.makeyourclub || "Make Your Club!" }}</h1>
         <div class="row center">
-          <h4 class="header col s12 light" style="color:#212121;">{{logo}}A school community where you can make and manage your own club</h4>
+          <h4 class="header col s12 light" style="color:#212121;">{{cntext.submakeyourclub || "A school community where you can make and manage your own club"}}</h4>
         </div>
         <div class="row center">
-          <a href="#modal1" id="download-button" class="modal-trigger btn-large waves-effect waves-light light-blue lighten-1 ">CREATE</a>
+          <a href="#modal1" id="download-button" class="modal-trigger btn-large waves-effect waves-light light-blue lighten-1 ">{{ cntext.create || "CREATE"}}</a>
 
           <!-- Modal Structure -->
             <div id="modal1" class="modal modal-fixed-footer" >
@@ -59,7 +62,7 @@
                    <div class="row">
                      <div class="input-field col s6">
                        <input id="club_name" type="text" class="validate" ng-model="club.name" required>
-                       <label for="club_name">Club Name</label>
+                       <label for="club_name">{{cntext.clubname||"Club Name"}}</label>
                      </div>
                      <div class="input-field col s6">
                        <label style="font-size:25px;padding-top:30px;" class="green-text">.club</label>
@@ -68,57 +71,21 @@
                    <div class="row">
                      <div class="input-field col s12">
                        <input id="description"type="text" class="validate" ng-model="club.description" required>
-                       <label for="description">Desciption</label>
+                       <label for="description">{{cntext.description||"Desciption"}}</label>
                      </div>
                    </div>
-                  <!--
-                     <div class="row">
-                       <div >
-                        <label id="daytomeetlabel"for="daytomeet" class="col l12 left-align">When to meet</label>
-                         <p id="daytomeet" class="col l2 s6">
-                           <input type="checkbox" id="day1" />
-                           <label for="day1">Mon</label>
-                         </p>
-                         <p id="daytomeet" class="col l2 s6">
-                           <input type="checkbox" id="day2" />
-                           <label for="day2">Tue</label>
-                         </p>
-                         <p id="daytomeet" class="col l2 s6">
-                           <input type="checkbox" id="day3" />
-                           <label for="day3">Wed</label>
-                         </p>
-                         <p id="daytomeet" class="col l2 s6">
-                           <input type="checkbox" id="day4" />
-                           <label for="day4">Thur</label>
-                         </p>
-                         <p id="daytomeet" class="col l2 s6">
-                           <input type="checkbox" id="day5" />
-                           <label for="day5">Fri</label>
-                         </p>
-                       </div>
-                     </div>
-                  -->
+
                      <div class="row">
                        <div class="input-field col s12">
                          <input id="email" type="email" class="validate" ng-model="club.email" required>
-                         <label for="email">Email</label>
+                         <label for="email">{{cntext.email||"Email"}}</label>
                        </div>
                      </div>
-                     <!--<div class="row">
-                      <div class="input-field col s12">
-                        <select>
-                          <option value="" disabled selected>Choose your option</option>
-                          <option value="1">Theme 1</option>
-                          <option value="2">Theme 2</option>
-                          <option value="3">Theme 3</option>
-                        </select>
-                        <label>Theme</label>
-                      </div>
-                    </div>-->
-                    <p class="green-text text-darken-2">Your customize club domain will look like this: {{club.name || "yourdomain"}}.club</p>
+
+                    <p class="green-text text-darken-2">{{cntext.yourdomain ||"Your customize club domain will look like this:"}} {{club.name || "yourdomain"}}.club</p>
 
 
-                         <button ng-click="submitClub()" type="submit" class=" waves-effect waves-light btn-flat">Create</button>
+                         <button ng-click="submitClub()" type="submit" class=" waves-effect waves-light btn-flat">{{cntext.create||"Create"}}</button>
 
 
                     </form>
@@ -147,27 +114,27 @@
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-            <h5 class="center">Easy communication and management for teachers</h5>
+            <h5 class="center">{{ cntext.easycom || "Easy communication and management for teachers"}}</h5>
 
-            <p class="light">We provide a platform for teachers , schools, and colleges to communicate and manage school clubs with a school community. Schools can know about the financial condition and events that host by the school clubs. A great way for school to set up fundraising dates and meeting schedule.</p>
+            <p class="light">{{ cntext.weprovide || "We provide a platform for teachers , schools, and colleges to communicate and manage school clubs with a school community. Schools can know about the financial condition and events that host by the school clubs. A great way for school to set up fundraising dates and meeting schedule."}}</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-            <h5 class="center">Discover your interest and passion</h5>
+            <h5 class="center">{{cntext.discover||"Discover your interest and passion"}}</h5>
 
-            <p class="light">The most important thing in you life is to do what you love to do. Find out people who have the common interest as  you are and create your club with them. Together you will protect what you all love to do.</p>
+            <p class="light">{{cntext.themost || "The most important thing in you life is to do what you love to do. Find out people who have the common interest as  you are and create your club with them. Together you will protect what you all love to do."}}</p>
           </div>
         </div>
 
         <div class="col s12 m4">
           <div class="icon-block">
             <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-            <h5 class="center">Create Website for your love and passion</h5>
+            <h5 class="center">{{cntext.createwebsite||"Create a club!"}}</h5>
 
-            <p class="light">With the coolest extension .club, you can create a website using MAKEYOUR.club for free. You can find more people with the common interest as you are. Gather more people to join you and do what you all love and passion for.</p>
+            <p class="light">{{cntext.withthecool||"With the coolest extension .club, you can create a website using MAKEYOUR.club for free. You can find more people with the common interest as you are. Gather more people to join you and do what you all love and passion for."}}</p>
           </div>
         </div>
       </div>
@@ -181,8 +148,8 @@
     <div class="container">
       <div class="row">
         <div class="col l12 s12">
-          <h5 class="white-text">Company Bio</h5>
-          <p class="grey-text text-lighten-4">We are a team of college students working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+          <h5 class="white-text">{{cntext.teaminfo || "Meet the team"}}</h5>
+          <p class="grey-text text-lighten-4">{{cntext.teamdescr||"MakeYour.club presented by Linra Studio, our mission is to create an irong string that vibrates everybody's life."}}</p>
 
 
         </div>
