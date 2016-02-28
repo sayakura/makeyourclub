@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="main.css" type="text/css" rel="stylesheet"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{{club.name}}</title>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+	    <div class="container">
+	        <div class="navbar-header">
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+	                <span class="sr-only">Toggle navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	            <a href="#" class="navbar-brand" style="font-size:30px">
+	            	{{club.name}}
+	            </a>
+	        </div>
+
+	        <!-- Collect the nav links, forms, and other content for toggling -->
+	        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	            <ul class="nav navbar-nav">
+	                <li><a href="#">Home</a></li>
+	                <li><a href="#">Event</a></li>
+	                <li><a href="#">Chat</a></li>
+	                <li><a href="#">Contact</a></li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+
+	<section class="jumbotron">
+		<div class="container">
+			<h1 style="text-align:center">{{club.name}}</h1>
+		</div>
+	</section>
+<!--<span class="label label-primary">New <span class="badge">99+</span></span>-->
+
+  <div class="container">
+  	<div class="row">
+	  	<div class="col-xs-12 col-md-6 col-sm-12 col-xm-12">
+			 <div class="page-header">
+				<h2>Desciption</h2>
+				<p>{{club.description}}
+				</p>
+			</div>
+		</div>
+		<div class="col-xs-12 col-md-6 col-sm-12  carousel slide" data-ride="carousel" id="featured">
+				<div class="carousel-inner">
+					<div class="item active">
+						<a href="#" class="thumbnail">
+					   		 <img src="https://i.ytimg.	com/vi/d88BXilbOxg/maxresdefault.jpg" />
+				   		</a>
+
+					</div>
+					<div class="item">
+						<a href="#" class="thumbnail">
+					   		 <img src="https://i.ytimg.	com/vi/d88BXilbOxg/maxresdefault.jpg" />
+				   		</a>
+					</div>
+			   </div>
+			   <a class="left carousel-control"
+			   		href="#featured" data-slide="prev">
+			   		<span class="glyphicon glyphicon-chevron-left"> </span>
+			   </a>
+			   <a class="right carousel-control"
+			   		href="#featured" data-slide="next">
+			   		<span class="glyphicon glyphicon-chevron-right">
+			   		</span>
+			   	</a>
+		</div>
+	</div>
+</div>
+
+	<hr>
+	 <footer class="footer" style="color:gray;text-align:center">
+        <p>&copy;{{club.name}}</p>
+   </footer>
+
+  </div>
+
+</body>
+</html>

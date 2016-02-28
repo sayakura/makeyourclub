@@ -11,8 +11,11 @@ app.get('/',function(req, res){
 app.get('/dashBoard',function(req, res){
   res.sendFile(__dirname+"/public/dashBoard.html");
 });
+app.get('/club_page',function(req, res){
+  res.sendFile(__dirname+"/public/club_page.html");
+});
 
-app.listen(process.env.PORT || 3000, process.env.IP || "0.0.0.0", function(){
+app.listen(process.env.PORT || 80, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening at...");
 });
 
