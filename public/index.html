@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="launchApp">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
@@ -11,12 +11,13 @@
   <link href="/css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 
 </head>
-<body>
+<body ng-controller="formCtrl" >
   <nav class="light-blue" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Make Your Club</a>
+      <a id="logo-container" href="#" class="brand-logo" style="padding-top:2px;"><img src="/images/logo.png"></img></a>
+      <a  href="#" class="brand-logo" style="margin-left:32px">Make your .club</a>
       <ul class="right hide-on-med-and-down">
-        <li><a class="navLink"href="#">Login</a></li>
+        <li><a class="navLink"href="#" ng-click="registerR()">Login</a></li>
         <li><a class="navLink"href="#">SignUp</a></li>
         <li><a href="#"><i class="material-icons dropdown-button " data-activates="dropdown1">view_module</i></a></li>
       </ul>
@@ -25,6 +26,7 @@
         <li><a href="#!">Community</a></li>
         <li><a href="#!">Contact Us</a></li>
         <li><a href="#!">Help</a></li>
+        <li><a href="dashboard.html">dashBoard</a></li>
       </ul>
 
       <ul id="nav-mobile" class="side-nav z-depth-3">
@@ -44,85 +46,85 @@
         <br><br>
         <h1 class="header center  blue-text text-lighten-2">-Make Your Club-</h1>
         <div class="row center">
-          <h5 class="header col s12 light" style="color:#212121;">A school community where you can make and manage your own club</h5>
+          <h4 class="header col s12 light" style="color:#212121;">{{logo}}A school community where you can make and manage your own club</h4>
         </div>
         <div class="row center">
-          <a href="#modal1" id="download-button" class="modal-trigger btn-large waves-effect waves-light light-blue lighten-1 ">MAKE IT</a>
+          <a href="#modal1" id="download-button" class="modal-trigger btn-large waves-effect waves-light light-blue lighten-1 ">CREATE</a>
 
           <!-- Modal Structure -->
-          <div id="modal1" class="modal modal-fixed-footer" >
-            <div class="modal-content" >
+            <div id="modal1" class="modal modal-fixed-footer" >
+              <div class="modal-content" >
+                <div class="row" id="createform">
+                 <form class="col s12">
+                   <div class="row">
+                     <div class="input-field col s6">
+                       <input id="club_name" type="text" class="validate" ng-model="club.name" required>
+                       <label for="club_name">Club Name</label>
+                     </div>
+                     <div class="input-field col s6">
+                       <label style="font-size:25px;padding-top:30px;" class="green-text">.club</label>
+                     </div>
+                   </div>
+                   <div class="row">
+                     <div class="input-field col s12">
+                       <input id="description"type="text" class="validate" ng-model="club.description" required>
+                       <label for="description">Desciption</label>
+                     </div>
+                   </div>
+                  <!--
+                     <div class="row">
+                       <div >
+                        <label id="daytomeetlabel"for="daytomeet" class="col l12 left-align">When to meet</label>
+                         <p id="daytomeet" class="col l2 s6">
+                           <input type="checkbox" id="day1" />
+                           <label for="day1">Mon</label>
+                         </p>
+                         <p id="daytomeet" class="col l2 s6">
+                           <input type="checkbox" id="day2" />
+                           <label for="day2">Tue</label>
+                         </p>
+                         <p id="daytomeet" class="col l2 s6">
+                           <input type="checkbox" id="day3" />
+                           <label for="day3">Wed</label>
+                         </p>
+                         <p id="daytomeet" class="col l2 s6">
+                           <input type="checkbox" id="day4" />
+                           <label for="day4">Thur</label>
+                         </p>
+                         <p id="daytomeet" class="col l2 s6">
+                           <input type="checkbox" id="day5" />
+                           <label for="day5">Fri</label>
+                         </p>
+                       </div>
+                     </div>
+                  -->
+                     <div class="row">
+                       <div class="input-field col s12">
+                         <input id="email" type="email" class="validate" ng-model="club.email" required>
+                         <label for="email">Email</label>
+                       </div>
+                     </div>
+                     <!--<div class="row">
+                      <div class="input-field col s12">
+                        <select>
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="1">Theme 1</option>
+                          <option value="2">Theme 2</option>
+                          <option value="3">Theme 3</option>
+                        </select>
+                        <label>Theme</label>
+                      </div>
+                    </div>-->
+                    <p class="green-text text-darken-2">Your customize club domain will look like this: {{club.name || "yourdomain"}}.club</p>
 
-            <div class="row" id="createform">
-               <form class="col s12">
-                 <div class="row">
-                   <div class="input-field col s6">
-                     <input id="first_name" type="text" class="validate">
-                     <label for="first_name">Club Name</label>
-                   </div>
-                   <div class="input-field col s6">
-                     <label style="font-size:25px;padding-top:30px;">.club</label>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="input-field col s12">
-                     <input id="description"type="text" class="validate">
-                     <label for="description">Desciption</label>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div >
-                    <label id="daytomeetlabel"for="daytomeet" class="col l12 left-align">When to meet</label>
-                     <p id="daytomeet" class="col l2 s6">
-                       <input type="checkbox" id="test1" />
-                       <label for="test1">Mon</label>
-                     </p>
-                     <p id="daytomeet" class="col l2 s6">
-                       <input type="checkbox" id="test2" />
-                       <label for="test2">Tue</label>
-                     </p>
-                     <p id="daytomeet" class="col l2 s6">
-                       <input type="checkbox" id="test3" />
-                       <label for="test3">Wed</label>
-                     </p>
-                     <p id="daytomeet" class="col l2 s6">
-                       <input type="checkbox" id="test4" />
-                       <label for="test4">Thur</label>
-                     </p>
-                     <p id="daytomeet" class="col l2 s6">
-                       <input type="checkbox" id="test5" />
-                       <label for="test5">Fri</label>
-                     </p>
-                   </div>
-                 </div>
-                 <div class="row">
-                   <div class="input-field col s12">
-                     <input id="email" type="email" class="validate">
-                     <label for="email">Email</label>
-                   </div>
-                 </div>
-                 <div class="row">
-                  <div class="input-field col s12">
-                    <select>
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Option 1</option>
-                      <option value="2">Option 2</option>
-                      <option value="3">Option 3</option>
-                    </select>
-                    <label>Theme</label>
+
+                         <button ng-click="submitClub()" type="submit" class=" waves-effect waves-light btn-flat">Create</button>
+
+
+                    </form>
                   </div>
-                </div>
-               </form>
-             </div>
-
-
-
-
+              </div>
             </div>
-            <div class="modal-footer">
-              <a onlick="gotodash()" class="modal-action modal-close waves-effect waves-green btn-flat ">MAKE IT!</a>
-            </div>
-          </div>
 
           <!-- Modal Trigger -->
 
@@ -174,20 +176,6 @@
   </div>
 
 
-  <div class="container">
-    <div class="section">
-
-      <div class="row">
-        <div class="col s12 center">
-          <h3><i class="mdi-content-send light-blue-text"></i></h3>
-          <h4>Contact Us</h4>
-          <p class="left-align light">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam scelerisque id nunc nec volutpat. Etiam pellentesque tristique arcu, non consequat magna fermentum ac. Cras ut ultricies eros. Maecenas eros justo, ullamcorper a sapien id, viverra ultrices eros. Morbi sem neque, posuere et pretium eget, bibendum sollicitudin lacus. Aliquam eleifend sollicitudin diam, eu mattis nisl maximus sed. Nulla imperdiet semper molestie. Morbi massa odio, condimentum sed ipsum ac, gravida ultrices erat. Nullam eget dignissim mauris, non tristique erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
 
   <footer class="page-footer light-blue">
     <div class="container">
@@ -213,6 +201,12 @@
   <script src="/js/materialize.js"></script>
   <script src="/js/init.js"></script>
   <script src="/js/jq.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.3/angularfire.min.js"></script>
+  <script type="text/javascript" src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+
+  <script src="/js/main.js"></script>
+
   </body>
 </html>

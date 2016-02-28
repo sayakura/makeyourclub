@@ -10,6 +10,9 @@ nav ul a,
 nav .brand-logo {
   color: white;
 }
+h1 {
+   -webkit-text-stroke: 1px #009688;
+}
 
 p {
   line-height: 2rem;
@@ -101,4 +104,7 @@ right hide-on-med-and-down>li>a>i.material-icons{
 .parallax-container{
   padding-top:90px;
   height:500px;
+}
+h4{
+  text-decoration: underline;
 }

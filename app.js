@@ -15,6 +15,11 @@ app.get('/club_page',function(req, res){
   res.sendFile(__dirname+"/public/club_page.html");
 });
 
+app.get('/club_page:token',function(req, res){
+  var token = req.params.token;
+  
+});
+
 app.listen(process.env.PORT || 80, process.env.IP || "0.0.0.0", function(){
   console.log("Server listening at...");
 });
