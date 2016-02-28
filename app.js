@@ -20,7 +20,7 @@ app.get('/manage_page',function(req, res){
 
 });
 
-app.listen(process.env.PORT || 80, function(){
+app.listen(80, function(){
   console.log("Server listening at...");
 });
 
